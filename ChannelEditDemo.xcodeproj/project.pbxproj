@@ -13,6 +13,10 @@
 		FC83F4111C3BFA8700EC8003 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC83F40F1C3BFA8700EC8003 /* Main.storyboard */; };
 		FC83F4131C3BFA8700EC8003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC83F4121C3BFA8700EC8003 /* Assets.xcassets */; };
 		FC83F4161C3BFA8700EC8003 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC83F4141C3BFA8700EC8003 /* LaunchScreen.storyboard */; };
+		FC83F4211C3BFAAC00EC8003 /* LRLChannelEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC83F41F1C3BFAAC00EC8003 /* LRLChannelEditController.m */; };
+		FC83F4221C3BFAAC00EC8003 /* LRLChannelEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC83F4201C3BFAAC00EC8003 /* LRLChannelEditController.xib */; };
+		FC83F4251C3BFBB600EC8003 /* ChannelUnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC83F4241C3BFBB600EC8003 /* ChannelUnitModel.m */; };
+		FC83F4281C3BFC1C00EC8003 /* TouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC83F4271C3BFC1C00EC8003 /* TouchView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,13 @@
 		FC83F4121C3BFA8700EC8003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC83F4151C3BFA8700EC8003 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC83F4171C3BFA8700EC8003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC83F41E1C3BFAAC00EC8003 /* LRLChannelEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRLChannelEditController.h; sourceTree = "<group>"; };
+		FC83F41F1C3BFAAC00EC8003 /* LRLChannelEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRLChannelEditController.m; sourceTree = "<group>"; };
+		FC83F4201C3BFAAC00EC8003 /* LRLChannelEditController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LRLChannelEditController.xib; sourceTree = "<group>"; };
+		FC83F4231C3BFBB600EC8003 /* ChannelUnitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelUnitModel.h; sourceTree = "<group>"; };
+		FC83F4241C3BFBB600EC8003 /* ChannelUnitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelUnitModel.m; sourceTree = "<group>"; };
+		FC83F4261C3BFC1C00EC8003 /* TouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchView.h; sourceTree = "<group>"; };
+		FC83F4271C3BFC1C00EC8003 /* TouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +71,7 @@
 			children = (
 				FC83F4091C3BFA8700EC8003 /* AppDelegate.h */,
 				FC83F40A1C3BFA8700EC8003 /* AppDelegate.m */,
+				FC83F41D1C3BFAAC00EC8003 /* LRLChannelEdit */,
 				FC83F40C1C3BFA8700EC8003 /* ViewController.h */,
 				FC83F40D1C3BFA8700EC8003 /* ViewController.m */,
 				FC83F40F1C3BFA8700EC8003 /* Main.storyboard */,
@@ -77,6 +89,20 @@
 				FC83F4071C3BFA8700EC8003 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC83F41D1C3BFAAC00EC8003 /* LRLChannelEdit */ = {
+			isa = PBXGroup;
+			children = (
+				FC83F4231C3BFBB600EC8003 /* ChannelUnitModel.h */,
+				FC83F4241C3BFBB600EC8003 /* ChannelUnitModel.m */,
+				FC83F4261C3BFC1C00EC8003 /* TouchView.h */,
+				FC83F4271C3BFC1C00EC8003 /* TouchView.m */,
+				FC83F41E1C3BFAAC00EC8003 /* LRLChannelEditController.h */,
+				FC83F41F1C3BFAAC00EC8003 /* LRLChannelEditController.m */,
+				FC83F4201C3BFAAC00EC8003 /* LRLChannelEditController.xib */,
+			);
+			path = LRLChannelEdit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +164,7 @@
 			files = (
 				FC83F4161C3BFA8700EC8003 /* LaunchScreen.storyboard in Resources */,
 				FC83F4131C3BFA8700EC8003 /* Assets.xcassets in Resources */,
+				FC83F4221C3BFAAC00EC8003 /* LRLChannelEditController.xib in Resources */,
 				FC83F4111C3BFA8700EC8003 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,9 +176,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC83F4281C3BFC1C00EC8003 /* TouchView.m in Sources */,
 				FC83F40E1C3BFA8700EC8003 /* ViewController.m in Sources */,
 				FC83F40B1C3BFA8700EC8003 /* AppDelegate.m in Sources */,
+				FC83F4211C3BFAAC00EC8003 /* LRLChannelEditController.m in Sources */,
 				FC83F4081C3BFA8700EC8003 /* main.m in Sources */,
+				FC83F4251C3BFBB600EC8003 /* ChannelUnitModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +243,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -251,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -264,6 +294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChannelEditDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.ChannelEditDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -275,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChannelEditDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---.ChannelEditDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
