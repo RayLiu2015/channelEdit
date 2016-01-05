@@ -15,7 +15,7 @@
 #define TopEdge 30
 
 //每行频道的个数
-#define ButtonCountOneRow 5
+#define ButtonCountOneRow 4
 #define ButtonHeight (ButtonWidth * 4/9)
 #define LocationWidth (ScreenWidth - EdgeX * 2)
 #define ButtonWidth (LocationWidth/ButtonCountOneRow)
