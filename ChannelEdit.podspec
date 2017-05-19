@@ -93,7 +93,7 @@ Pod::Spec.new do |s|
   s.source_files  = "ChannelEditDemo/LRLChannelEdit/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "ChannelEditDemo/LRLChannelEdit/**/LRLChannelEditController.h","ChannelEditDemo/LRLChannelEdit/**/ChannelUnitModel.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
