@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LRLChannelEditController">
@@ -15,11 +20,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywV-yz-QmK">
-                    <rect key="frame" x="370" y="33" width="44" height="44"/>
+                    <rect key="frame" x="331" y="33" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="44" id="6RK-ok-qFa"/>
                         <constraint firstAttribute="height" constant="44" id="RCS-hk-ZbL"/>
@@ -43,7 +48,7 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7w-HR-W2V">
-                    <rect key="frame" x="0.0" y="107" width="414" height="629"/>
+                    <rect key="frame" x="0.0" y="107" width="375" height="560"/>
                 </scrollView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的栏目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocd-Z0-6Ma">
                     <rect key="frame" x="10" y="87" width="50" height="20"/>
@@ -62,11 +67,11 @@
                         <constraint firstAttribute="width" constant="80" id="gxJ-PM-AmW"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                    <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2O-Ny-SqN">
-                    <rect key="frame" x="347" y="87" width="57" height="20"/>
+                    <rect key="frame" x="308" y="87" width="57" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="E9w-Lu-nTZ"/>
                         <constraint firstAttribute="width" constant="57" id="Xx6-9g-DXW"/>
@@ -75,7 +80,7 @@
                     <state key="highlighted" backgroundImage="reorder-1"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Gx0-HF-d3P" firstAttribute="leading" secondItem="ocd-Z0-6Ma" secondAttribute="trailing" constant="20" id="B9n-iV-bud"/>
                 <constraint firstItem="ywV-yz-QmK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="33" id="Gs0-v7-hcv"/>
@@ -90,13 +95,12 @@
                 <constraint firstAttribute="trailing" secondItem="o2O-Ny-SqN" secondAttribute="trailing" constant="10" id="lSu-nE-mfI"/>
                 <constraint firstItem="r7w-HR-W2V" firstAttribute="top" secondItem="o2O-Ny-SqN" secondAttribute="bottom" id="vPo-rI-Qdh"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>
     </objects>
     <resources>
         <image name="close" width="20" height="20"/>
         <image name="close-1" width="20" height="20"/>
-        <image name="reorder" width="58" height="20"/>
-        <image name="reorder-1" width="58" height="20"/>
+        <image name="reorder" width="57" height="20"/>
+        <image name="reorder-1" width="57" height="20"/>
     </resources>
 </document>
