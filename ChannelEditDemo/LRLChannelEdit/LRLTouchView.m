@@ -6,9 +6,10 @@
 //  Copyright © 2015年 com.Dmeng. All rights reserved.
 //
 
-#import "TouchView.h"
+#import "LRLTouchView.h"
+#import "UIImage+LRLBundle.h"
 
-@implementation TouchView
+@implementation LRLTouchView
 
 -(float)getTextSizeWithInOrOut:(BOOL)inOrOut{
     if (inOrOut) {
@@ -31,7 +32,7 @@
         
         self.closeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width - 16.5, 1.5, 15, 15)];
         self.closeImageView.hidden = YES;
-        self.closeImageView.image = [UIImage imageNamed:@"del"];
+        self.closeImageView.image = [UIImage imageMyBundleNamed:@"del"];
         [self addSubview:self.closeImageView];
     }
     return self;

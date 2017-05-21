@@ -11,9 +11,9 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) NSMutableArray<ChannelUnitModel *> *topChannelArr;
+@property (nonatomic, strong) NSMutableArray<LRLChannelUnitModel *> *topChannelArr;
 
-@property (nonatomic, strong) NSMutableArray<ChannelUnitModel *> *bottomChannelArr;
+@property (nonatomic, strong) NSMutableArray<LRLChannelUnitModel *> *bottomChannelArr;
 
 @property (nonatomic, assign) NSInteger chooseIndex;
 
@@ -25,12 +25,12 @@
     [super viewDidLoad];
 }
 
--(NSMutableArray<ChannelUnitModel *> *)topChannelArr{
+-(NSMutableArray<LRLChannelUnitModel *> *)topChannelArr{
     if (!_topChannelArr) {
         //这里模拟从本地获取的频道数组
         _topChannelArr = [NSMutableArray array];
         for (int i = 0; i < 50; ++i) {
-            ChannelUnitModel *channelModel = [[ChannelUnitModel alloc] init];
+            LRLChannelUnitModel *channelModel = [[LRLChannelUnitModel alloc] init];
             channelModel.name = [NSString stringWithFormat:@"标题%d", i];
             channelModel.cid = [NSString stringWithFormat:@"%d", i];
             channelModel.isTop = YES;
@@ -39,11 +39,11 @@
     }
     return _topChannelArr;
 }
--(NSMutableArray<ChannelUnitModel *> *)bottomChannelArr{
+-(NSMutableArray<LRLChannelUnitModel *> *)bottomChannelArr{
     if (!_bottomChannelArr) {
         _bottomChannelArr = [NSMutableArray array];
         for (int i = 30; i < 50; ++i) {
-            ChannelUnitModel *channelModel = [[ChannelUnitModel alloc] init];
+            LRLChannelUnitModel *channelModel = [[LRLChannelUnitModel alloc] init];
             channelModel.name = [NSString stringWithFormat:@"标题%d", i];
             channelModel.cid = [NSString stringWithFormat:@"%d", i];
             channelModel.isTop = NO;
@@ -60,12 +60,12 @@
     
     //编辑后的回调
     __weak ViewController *weakSelf = self;
-    channelEdit.removeInitialIndexBlock = ^(NSMutableArray<ChannelUnitModel *> *topArr, NSMutableArray<ChannelUnitModel *> *bottomArr){
+    channelEdit.removeInitialIndexBlock = ^(NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
         weakSelf.topChannelArr = topArr;
         weakSelf.bottomChannelArr = bottomArr;
         NSLog(@"删除了初始选中项的回调:\n保留的频道有: %@", topArr);
     };
-    channelEdit.chooseIndexBlock = ^(NSInteger index, NSMutableArray<ChannelUnitModel *> *topArr, NSMutableArray<ChannelUnitModel *> *bottomArr){
+    channelEdit.chooseIndexBlock = ^(NSInteger index, NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr){
         weakSelf.topChannelArr = topArr;
         weakSelf.bottomChannelArr = bottomArr;
         weakSelf.chooseIndex = index;

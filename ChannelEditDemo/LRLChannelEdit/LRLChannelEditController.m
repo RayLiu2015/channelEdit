@@ -6,8 +6,9 @@
 //  Copyright © 2015年 com.Dmeng. All rights reserved.
 //
 
-#import "TouchView.h"
-#import "ChannelUnitModel.h"
+#import "LRLTouchView.h"
+#import "UIImage+LRLBundle.h"
+#import "LRLChannelUnitModel.h"
 #import "LRLChannelEditController.h"
 
 //左右边距
@@ -26,17 +27,18 @@
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
+
 @interface LRLChannelEditController ()
 {
     BOOL _isEditing;
     CGPoint _oldCenter;
     NSInteger _moveIndex;
 }
-@property (nonatomic, strong) NSMutableArray<ChannelUnitModel *> *topDataSource;
-@property (nonatomic, strong) NSMutableArray<ChannelUnitModel *> *bottomDataSource;
+@property (nonatomic, strong) NSMutableArray<LRLChannelUnitModel *> *topDataSource;
+@property (nonatomic, strong) NSMutableArray<LRLChannelUnitModel *> *bottomDataSource;
 
-@property (nonatomic, strong) NSMutableArray<TouchView *> *topViewArr;
-@property (nonatomic, strong) NSMutableArray<TouchView *> *bottomViewArr;
+@property (nonatomic, strong) NSMutableArray<LRLTouchView *> *topViewArr;
+@property (nonatomic, strong) NSMutableArray<LRLTouchView *> *bottomViewArr;
 
 @property (nonatomic, weak) IBOutlet UILabel *topLabel;
 @property (nonatomic, assign) CGFloat topHeight;
@@ -47,19 +49,19 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIButton *editButton;
 @property (nonatomic, weak) IBOutlet UILabel *editAlertLabel;
-@property (nonatomic, strong) TouchView *clearView;
-@property (nonatomic, strong) ChannelUnitModel *placeHolderModel;
-@property (nonatomic, strong) ChannelUnitModel *touchingModel;
+@property (nonatomic, strong) LRLTouchView *clearView;
+@property (nonatomic, strong) LRLChannelUnitModel *placeHolderModel;
+@property (nonatomic, strong) LRLChannelUnitModel *touchingModel;
 
-@property (nonatomic, strong) ChannelUnitModel *initialIndexModel;
-@property (nonatomic, strong) TouchView *initalTouchView;
+@property (nonatomic, strong) LRLChannelUnitModel *initialIndexModel;
+@property (nonatomic, strong) LRLTouchView *initalTouchView;
 @property (nonatomic, assign) NSInteger locationIndex;
 
 @end
 
 @implementation LRLChannelEditController
 
--(id)initWithTopDataSource:(NSArray<ChannelUnitModel *> *)topDataArr andBottomDataSource:(NSArray<ChannelUnitModel *> *)bottomDataSource andInitialIndex:(NSInteger)initialIndex{
+-(id)initWithTopDataSource:(NSArray<LRLChannelUnitModel *> *)topDataArr andBottomDataSource:(NSArray<LRLChannelUnitModel *> *)bottomDataSource andInitialIndex:(NSInteger)initialIndex{
     if (self = [super init]) {
         self.topDataSource = [NSMutableArray arrayWithArray:topDataArr];
         self.bottomDataSource = [NSMutableArray arrayWithArray:bottomDataSource];
@@ -90,10 +92,10 @@
     [self.editButton addTarget:self action:@selector(editOrderAct:) forControlEvents:UIControlEventTouchUpInside];
     
     for (int i = 0; i < self.topDataSource.count; ++i) {
-        TouchView *touchView = [[TouchView alloc] initWithFrame:CGRectMake(5 + i%ButtonCountOneRow * ButtonWidth, TopEdge + i/ButtonCountOneRow * ButtonHeight, ButtonWidth, ButtonHeight)];
+        LRLTouchView *touchView = [[LRLTouchView alloc] initWithFrame:CGRectMake(5 + i%ButtonCountOneRow * ButtonWidth, TopEdge + i/ButtonCountOneRow * ButtonHeight, ButtonWidth, ButtonHeight)];
         touchView.userInteractionEnabled = YES;
         
-        ChannelUnitModel *model = self.topDataSource[i];
+        LRLChannelUnitModel *model = self.topDataSource[i];
         touchView.contentLabel.text = model.name;
         if (i < 2) { //位于前两个的频道不添加任何手势, 并且文字颜色为灰色
             touchView.contentLabel.textColor = UIColorFromRGB(0xc0c0c0);
@@ -131,8 +133,8 @@
     CGFloat startHeight = self.bottomLabel.frame.origin.y + 20 + 10;
     
     for (int i = 0; i < self.bottomDataSource.count; ++i) {
-        TouchView *touchView = [[TouchView alloc] initWithFrame:CGRectMake(EdgeX + i%ButtonCountOneRow * ButtonWidth, startHeight + i/ButtonCountOneRow * ButtonHeight, ButtonWidth, ButtonHeight)];
-        ChannelUnitModel *model = self.bottomDataSource[i];
+        LRLTouchView *touchView = [[LRLTouchView alloc] initWithFrame:CGRectMake(EdgeX + i%ButtonCountOneRow * ButtonWidth, startHeight + i/ButtonCountOneRow * ButtonHeight, ButtonWidth, ButtonHeight)];
+        LRLChannelUnitModel *model = self.bottomDataSource[i];
         touchView.contentLabel.text = model.name;
         touchView.userInteractionEnabled = YES;
         touchView.contentLabel.textAlignment = NSTextAlignmentCenter;
@@ -148,21 +150,21 @@
 -(void)reconfigBottomView{
     CGFloat startHeight = self.bottomLabel.frame.origin.y + 20 + 10;
     for (int i = 0; i < self.bottomViewArr.count; ++i) {
-        TouchView *touchView = self.bottomViewArr[i];
+        LRLTouchView *touchView = self.bottomViewArr[i];
         touchView.frame = CGRectMake(EdgeX + i%ButtonCountOneRow * ButtonWidth, startHeight + i/ButtonCountOneRow * ButtonHeight, ButtonWidth, ButtonHeight);
     }
 }
 #pragma mark - 重新布局上边
 -(void)reconfigTopView{
     for (int i = 0; i < self.topViewArr.count; ++i) {
-        TouchView *touchView = self.topViewArr[i];
+        LRLTouchView *touchView = self.topViewArr[i];
         touchView.frame = CGRectMake(EdgeX + i%ButtonCountOneRow * ButtonWidth, TopEdge + i/ButtonCountOneRow*ButtonHeight, ButtonWidth, ButtonHeight);
     }
 }
 
 #pragma mark - 从上到下
 -(void)topTapAct:(UITapGestureRecognizer *)tap{
-    TouchView *touchView = (TouchView *)tap.view;
+    LRLTouchView *touchView = (LRLTouchView *)tap.view;
     NSInteger index = [self.topViewArr indexOfObject:touchView];
     if (_isEditing) {
         [self.scrollView bringSubviewToFront:touchView];
@@ -171,7 +173,7 @@
         [self.topViewArr removeObject:touchView];
         //为了安全, 加判断
         if (index < self.topDataSource.count) {
-            ChannelUnitModel *cModel = self.topDataSource[index];
+            LRLChannelUnitModel *cModel = self.topDataSource[index];
             cModel.isTop = NO;
             [self.bottomDataSource insertObject:cModel atIndex:0];
             [self.topDataSource removeObjectAtIndex:index];
@@ -201,7 +203,7 @@
 #pragma mark - 点击上边前两个按钮
 -(void)defaultTopTap:(UITapGestureRecognizer *)tap{
     if (!_isEditing) {
-        TouchView *touchView = (TouchView *)tap.view;
+        LRLTouchView *touchView = (LRLTouchView *)tap.view;
         NSInteger index = [self.topViewArr indexOfObject:touchView];
         [self returnToHomeWithIndex:index];
     }
@@ -217,14 +219,14 @@
 }
 #pragma mark - 从下到上
 -(void)bottomTapAct:(UITapGestureRecognizer *)tap{
-    TouchView *touchView = (TouchView *)tap.view;
+    LRLTouchView *touchView = (LRLTouchView *)tap.view;
     [self.scrollView bringSubviewToFront:touchView];
     NSInteger index = [self.bottomViewArr indexOfObject:touchView];
     [self.topViewArr addObject:touchView];
     [self.bottomViewArr removeObject:touchView];
     //为了安全, 加判断
     if (index < self.bottomDataSource.count) {
-        ChannelUnitModel *model = self.bottomDataSource[index];
+        LRLChannelUnitModel *model = self.bottomDataSource[index];
         model.isTop = YES;
         if (model == self.initialIndexModel) {
             if (_isEditing) {
@@ -257,7 +259,7 @@
 
 #pragma mark - 拖拽手势
 -(void)topPanAct:(UIPanGestureRecognizer *)pan{
-    TouchView *touchView = (TouchView *)pan.view;
+    LRLTouchView *touchView = (LRLTouchView *)pan.view;
     [self.scrollView  bringSubviewToFront:touchView];
     static int staticIndex = 0;
     if (pan.state == UIGestureRecognizerStateBegan) {
@@ -345,7 +347,7 @@
 }
 #pragma mark - 长按手势
 -(void)longTapAct:(UILongPressGestureRecognizer *)longPress{
-    TouchView *touchView = (TouchView *)longPress.view;
+    LRLTouchView *touchView = (LRLTouchView *)longPress.view;
     [self.scrollView bringSubviewToFront:touchView];
     static CGPoint touchPoint;
     static CGFloat offsetX;
@@ -451,11 +453,11 @@
 }
 
 #pragma mark - 用于占位的透明label
--(TouchView *)clearView{
+-(LRLTouchView *)clearView{
     if (!_clearView) {
-        _clearView = [[TouchView alloc] init];
+        _clearView = [[LRLTouchView alloc] init];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, ButtonWidth - 10, ButtonHeight - 10)];
-        imageView.image = [UIImage imageNamed:@"lanmu2"];
+        imageView.image = [UIImage imageMyBundleNamed:@"lanmu2"];
         [_clearView addSubview:imageView];
         _clearView.backgroundColor = [UIColor clearColor];
         [_clearView.contentLabel removeFromSuperview];
@@ -463,9 +465,9 @@
     return _clearView;
 }
 #pragma mark - 用于占位的model, 由于计算位置有问题
--(ChannelUnitModel *)placeHolderModel{
+-(LRLChannelUnitModel *)placeHolderModel{
     if (!_placeHolderModel) {
-        _placeHolderModel = [[ChannelUnitModel alloc] init];
+        _placeHolderModel = [[LRLChannelUnitModel alloc] init];
     }
     return _placeHolderModel;
 }
@@ -494,8 +496,8 @@
 #pragma mark - 进入或者退出编辑状态
 -(void)inOrOutEditWithEditing:(BOOL)isEditing{
     if (isEditing) {
-        [self.editButton setBackgroundImage:[UIImage imageNamed:@"finsh"] forState:UIControlStateNormal];
-        [self.editButton setBackgroundImage:[UIImage imageNamed:@"finsh-1"] forState:UIControlStateHighlighted];
+        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"finsh"] forState:UIControlStateNormal];
+        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"finsh-1"] forState:UIControlStateHighlighted];
         
         if (self.initalTouchView) {
             if (self.locationIndex > 1) {
@@ -507,22 +509,22 @@
         
         self.editAlertLabel.hidden = NO;
         for (int i = 0; i < self.topViewArr.count; ++i) {
-            TouchView *touchView = self.topViewArr[i];
+            LRLTouchView *touchView = self.topViewArr[i];
             if (touchView.pan) {
                 touchView.pan.enabled = YES;
                 touchView.closeImageView.hidden = NO;
             }
         }
     }else{
-        [self.editButton setBackgroundImage:[UIImage imageNamed:@"reorder"] forState:UIControlStateNormal];
-        [self.editButton setBackgroundImage:[UIImage imageNamed:@"reorder-1"] forState:UIControlStateHighlighted];
+        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"reorder"] forState:UIControlStateNormal];
+        [self.editButton setBackgroundImage:[UIImage imageMyBundleNamed:@"reorder-1"] forState:UIControlStateHighlighted];
         
         if (self.initalTouchView && self.initialIndexModel.isTop) {
             self.initalTouchView.contentLabel.textColor = UIColorFromRGB(0x008dff);
         }
         self.editAlertLabel.hidden = YES;
         for (int i = 0; i < self.topViewArr.count; ++i) {
-            TouchView *touchView = self.topViewArr[i];
+            LRLTouchView *touchView = self.topViewArr[i];
             if (touchView.pan) {
                 touchView.pan.enabled = NO;
                 touchView.closeImageView.hidden = YES;

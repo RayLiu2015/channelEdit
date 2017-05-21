@@ -7,9 +7,9 @@
 //
 
 #import <objc/runtime.h>
-#import "ChannelUnitModel.h"
+#import "LRLChannelUnitModel.h"
 
-@implementation ChannelUnitModel
+@implementation LRLChannelUnitModel
 -(NSString *)description{
     unsigned int count = 0;
     Ivar *ivars = class_copyIvarList(self.class, &count);

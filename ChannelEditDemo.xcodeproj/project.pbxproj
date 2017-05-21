@@ -15,8 +15,10 @@
 		FC83F4161C3BFA8700EC8003 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC83F4141C3BFA8700EC8003 /* LaunchScreen.storyboard */; };
 		FC83F4211C3BFAAC00EC8003 /* LRLChannelEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC83F41F1C3BFAAC00EC8003 /* LRLChannelEditController.m */; };
 		FC83F4221C3BFAAC00EC8003 /* LRLChannelEditController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC83F4201C3BFAAC00EC8003 /* LRLChannelEditController.xib */; };
-		FC83F4251C3BFBB600EC8003 /* ChannelUnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC83F4241C3BFBB600EC8003 /* ChannelUnitModel.m */; };
-		FC83F4281C3BFC1C00EC8003 /* TouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC83F4271C3BFC1C00EC8003 /* TouchView.m */; };
+		FC83F4251C3BFBB600EC8003 /* LRLChannelUnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC83F4241C3BFBB600EC8003 /* LRLChannelUnitModel.m */; };
+		FC83F4281C3BFC1C00EC8003 /* LRLTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC83F4271C3BFC1C00EC8003 /* LRLTouchView.m */; };
+		FCE5989D1ED160D300E4BE39 /* LRLChannelEdit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCE5989C1ED160D300E4BE39 /* LRLChannelEdit.bundle */; };
+		FCE598A01ED167E900E4BE39 /* UIImage+LRLBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE5989F1ED167E900E4BE39 /* UIImage+LRLBundle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +35,13 @@
 		FC83F41E1C3BFAAC00EC8003 /* LRLChannelEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRLChannelEditController.h; sourceTree = "<group>"; };
 		FC83F41F1C3BFAAC00EC8003 /* LRLChannelEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRLChannelEditController.m; sourceTree = "<group>"; };
 		FC83F4201C3BFAAC00EC8003 /* LRLChannelEditController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LRLChannelEditController.xib; sourceTree = "<group>"; };
-		FC83F4231C3BFBB600EC8003 /* ChannelUnitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelUnitModel.h; sourceTree = "<group>"; };
-		FC83F4241C3BFBB600EC8003 /* ChannelUnitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelUnitModel.m; sourceTree = "<group>"; };
-		FC83F4261C3BFC1C00EC8003 /* TouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchView.h; sourceTree = "<group>"; };
-		FC83F4271C3BFC1C00EC8003 /* TouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchView.m; sourceTree = "<group>"; };
+		FC83F4231C3BFBB600EC8003 /* LRLChannelUnitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRLChannelUnitModel.h; sourceTree = "<group>"; };
+		FC83F4241C3BFBB600EC8003 /* LRLChannelUnitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRLChannelUnitModel.m; sourceTree = "<group>"; };
+		FC83F4261C3BFC1C00EC8003 /* LRLTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRLTouchView.h; sourceTree = "<group>"; };
+		FC83F4271C3BFC1C00EC8003 /* LRLTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRLTouchView.m; sourceTree = "<group>"; };
+		FCE5989C1ED160D300E4BE39 /* LRLChannelEdit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LRLChannelEdit.bundle; sourceTree = "<group>"; };
+		FCE5989E1ED167E900E4BE39 /* UIImage+LRLBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LRLBundle.h"; sourceTree = "<group>"; };
+		FCE5989F1ED167E900E4BE39 /* UIImage+LRLBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LRLBundle.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,13 +99,16 @@
 		FC83F41D1C3BFAAC00EC8003 /* LRLChannelEdit */ = {
 			isa = PBXGroup;
 			children = (
-				FC83F4231C3BFBB600EC8003 /* ChannelUnitModel.h */,
-				FC83F4241C3BFBB600EC8003 /* ChannelUnitModel.m */,
-				FC83F4261C3BFC1C00EC8003 /* TouchView.h */,
-				FC83F4271C3BFC1C00EC8003 /* TouchView.m */,
+				FCE5989C1ED160D300E4BE39 /* LRLChannelEdit.bundle */,
+				FC83F4231C3BFBB600EC8003 /* LRLChannelUnitModel.h */,
+				FC83F4241C3BFBB600EC8003 /* LRLChannelUnitModel.m */,
+				FC83F4261C3BFC1C00EC8003 /* LRLTouchView.h */,
+				FC83F4271C3BFC1C00EC8003 /* LRLTouchView.m */,
 				FC83F41E1C3BFAAC00EC8003 /* LRLChannelEditController.h */,
 				FC83F41F1C3BFAAC00EC8003 /* LRLChannelEditController.m */,
 				FC83F4201C3BFAAC00EC8003 /* LRLChannelEditController.xib */,
+				FCE5989E1ED167E900E4BE39 /* UIImage+LRLBundle.h */,
+				FCE5989F1ED167E900E4BE39 /* UIImage+LRLBundle.m */,
 			);
 			path = LRLChannelEdit;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 			files = (
 				FC83F4161C3BFA8700EC8003 /* LaunchScreen.storyboard in Resources */,
 				FC83F4131C3BFA8700EC8003 /* Assets.xcassets in Resources */,
+				FCE5989D1ED160D300E4BE39 /* LRLChannelEdit.bundle in Resources */,
 				FC83F4221C3BFAAC00EC8003 /* LRLChannelEditController.xib in Resources */,
 				FC83F4111C3BFA8700EC8003 /* Main.storyboard in Resources */,
 			);
@@ -176,12 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC83F4281C3BFC1C00EC8003 /* TouchView.m in Sources */,
+				FCE598A01ED167E900E4BE39 /* UIImage+LRLBundle.m in Sources */,
+				FC83F4281C3BFC1C00EC8003 /* LRLTouchView.m in Sources */,
 				FC83F40E1C3BFA8700EC8003 /* ViewController.m in Sources */,
 				FC83F40B1C3BFA8700EC8003 /* AppDelegate.m in Sources */,
 				FC83F4211C3BFAAC00EC8003 /* LRLChannelEditController.m in Sources */,
 				FC83F4081C3BFA8700EC8003 /* main.m in Sources */,
-				FC83F4251C3BFBB600EC8003 /* ChannelUnitModel.m in Sources */,
+				FC83F4251C3BFBB600EC8003 /* LRLChannelUnitModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +342,7 @@
 				FC83F41C1C3BFA8700EC8003 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

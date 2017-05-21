@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ChannelEdit"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "模仿今日头条, 网易频道编辑"
 
   # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/codeWorm2015/channelEdit.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/codeWorm2015/channelEdit.git", :tag => "1.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -106,6 +106,8 @@ Pod::Spec.new do |s|
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
+    s.resources    = "ChannelEditDemo/LRLChannelEdit/*.{png,xib,nib,bundle}"
+
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ChannelUnitModel : NSObject
+@interface LRLChannelUnitModel : NSObject
 
 @property (nonatomic, copy) NSString *cid;
 

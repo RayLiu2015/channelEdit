@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TouchView : UIView
+@interface LRLTouchView : UIView
 
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UIImageView *closeImageView;

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -33,7 +33,7 @@
                         <constraint firstAttribute="width" constant="50" id="t9l-wP-hD1"/>
                         <constraint firstAttribute="height" constant="50" id="uda-2O-HJy"/>
                     </constraints>
-                    <state key="normal" image="close"/>
+                    <state key="normal" image="LRLChannelEdit.bundle/close"/>
                     <state key="highlighted" image="close-1"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -76,7 +76,7 @@
                         <constraint firstAttribute="height" constant="20" id="E9w-Lu-nTZ"/>
                         <constraint firstAttribute="width" constant="57" id="Xx6-9g-DXW"/>
                     </constraints>
-                    <state key="normal" backgroundImage="reorder"/>
+                    <state key="normal" backgroundImage="LRLChannelEdit.bundle/reorder"/>
                     <state key="highlighted" backgroundImage="reorder-1"/>
                 </button>
             </subviews>
@@ -98,9 +98,9 @@
         </view>
     </objects>
     <resources>
-        <image name="close" width="20" height="20"/>
+        <image name="LRLChannelEdit.bundle/close" width="16" height="16"/>
+        <image name="LRLChannelEdit.bundle/reorder" width="16" height="16"/>
         <image name="close-1" width="20" height="20"/>
-        <image name="reorder" width="57" height="20"/>
         <image name="reorder-1" width="57" height="20"/>
     </resources>
 </document>
