@@ -1,5 +1,5 @@
-*CocoaPods*
+**CocoaPods**
 
 `
-pod 'LRLChannelEditController', '~> 1.0.4’
+pod 'LRLChannelEditController', '~> 1.0.4'
 `
