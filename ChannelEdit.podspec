@@ -93,7 +93,7 @@ Pod::Spec.new do |s|
   s.source_files  = "ChannelEditDemo/LRLChannelEdit/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 
-  s.public_header_files = "ChannelEditDemo/LRLChannelEdit/**/LRLChannelEditController.h","ChannelEditDemo/LRLChannelEdit/**/ChannelUnitModel.h"
+  s.public_header_files = "ChannelEditDemo/LRLChannelEdit/**/LRLChannelEditController.h","ChannelEditDemo/LRLChannelEdit/**/LRLChannelUnitModel.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
-    s.resources    = "ChannelEditDemo/LRLChannelEdit/*.{png,xib,nib,bundle}"
+    s.resources = "ChannelEditDemo/LRLChannelEdit/*.{png,xib,nib,bundle}"
 
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
