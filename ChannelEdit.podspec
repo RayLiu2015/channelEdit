@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "ChannelEdit"
-  s.version      = "1.0.2"
+  s.name         = "LRLChannelEditController"
+  s.version      = "1.0.4"
   s.summary      = "模仿今日头条, 网易频道编辑"
 
   # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/codeWorm2015/channelEdit.git", :tag => "1.0.2" }
+  s.source       = { :git => "https://github.com/codeWorm2015/channelEdit.git", :tag => "1.0.4" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
