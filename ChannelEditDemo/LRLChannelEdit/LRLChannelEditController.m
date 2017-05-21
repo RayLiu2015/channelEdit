@@ -62,7 +62,7 @@
 @implementation LRLChannelEditController
 
 -(id)initWithTopDataSource:(NSArray<LRLChannelUnitModel *> *)topDataArr andBottomDataSource:(NSArray<LRLChannelUnitModel *> *)bottomDataSource andInitialIndex:(NSInteger)initialIndex{
-    if (self = [super init]) {
+    if (self = [super initWithNibName:@"LRLChannelEditController" bundle:nil]) {
         self.topDataSource = [NSMutableArray arrayWithArray:topDataArr];
         self.bottomDataSource = [NSMutableArray arrayWithArray:bottomDataSource];
         self.locationIndex = initialIndex;
