@@ -15,6 +15,11 @@
 -(id)initWithTopDataSource:(NSArray<LRLChannelUnitModel *> *)topDataArr andBottomDataSource:(NSArray<LRLChannelUnitModel *> *)bottomDataSource andInitialIndex:(NSInteger)initialIndex;
 
 /**
+ @b 固定按钮的数量, 默认为0, 必须小于 topDataArr 的数量
+ */
+@property (assign, nonatomic) NSUInteger fixedCount;
+
+/**
  * @b 编辑后, 删除初始选中项排序的回调
  */
 @property (nonatomic, copy) void(^removeInitialIndexBlock)(NSMutableArray<LRLChannelUnitModel *> *topArr, NSMutableArray<LRLChannelUnitModel *> *bottomArr);

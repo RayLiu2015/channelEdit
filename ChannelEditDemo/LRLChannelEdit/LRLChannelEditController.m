@@ -65,6 +65,7 @@
     if (self = [super initWithNibName:@"LRLChannelEditController" bundle:[NSBundle bundleForClass:self.class]]) {
         self.topDataSource = [NSMutableArray arrayWithArray:topDataArr];
         self.bottomDataSource = [NSMutableArray arrayWithArray:bottomDataSource];
+        self.fixedCount = 0;
         self.locationIndex = initialIndex;
     }
     return self;
@@ -97,7 +98,7 @@
         
         LRLChannelUnitModel *model = self.topDataSource[i];
         touchView.contentLabel.text = model.name;
-        if (i < 2) { //位于前两个的频道不添加任何手势, 并且文字颜色为灰色
+        if (i < self.fixedCount) { //位于前两个的频道不添加任何手势, 并且文字颜色为灰色
             touchView.contentLabel.textColor = UIColorFromRGB(0xc0c0c0);
             touchView.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(defaultTopTap:)];
             [touchView addGestureRecognizer:touchView.tap];
@@ -257,6 +258,15 @@
     [touchView.tap addTarget:self action:@selector(topTapAct:)];
 }
 
+-(BOOL)outRange:(CGPoint)point{
+    CGFloat x = point.x;
+    CGFloat y =point.y;
+//    return (x < EdgeX || x > ScreenWidth - EdgeX || y < TopEdge || y > TopEdge + self.topHeight  || (y < (TopEdge + ButtonHeight) && x < (EdgeX + 2 * ButtonWidth)));
+
+    NSUInteger line = (self.fixedCount / (ButtonCountOneRow + 1) + 1);
+    return (x < EdgeX || x > ScreenWidth - EdgeX || y < TopEdge || y > TopEdge + self.topHeight  || (y < TopEdge + line * ButtonHeight && x < (EdgeX + (self.fixedCount - (line - 1) * ButtonCountOneRow) * ButtonWidth)));
+}
+
 #pragma mark - 拖拽手势
 -(void)topPanAct:(UIPanGestureRecognizer *)pan{
     LRLTouchView *touchView = (LRLTouchView *)pan.view;
@@ -281,7 +291,7 @@
         CGFloat x = touchView.center.x;
         CGFloat y = touchView.center.y;
         //没有超出范围
-        if (!(x < EdgeX || x > ScreenWidth - EdgeX || y < TopEdge || y > TopEdge + self.topHeight  || (y < (TopEdge + ButtonHeight) && x < (EdgeX + 2 * ButtonWidth)))) {
+        if (![self outRange:touchView.center]) {
             //记录移动过程中label所处的index
             int index = ((int)((y - TopEdge)/ButtonHeight)) * ButtonCountOneRow + (int)(x - EdgeX)/ButtonWidth;
             //当index发生改变时, 插入占位的label, 重新布局UI
@@ -308,7 +318,7 @@
         [touchView inOrOutTouching:NO];
         CGFloat x = touchView.center.x;
         CGFloat y = touchView.center.y;
-        if (x < EdgeX || x > ScreenWidth - EdgeX || y < TopEdge || y > TopEdge + self.topHeight || (y < (TopEdge + ButtonHeight) && x < (EdgeX + 2 * ButtonWidth))) {
+        if ([self outRange:touchView.center]) {
             NSLog(@"超出范围");
             [UIView animateWithDuration:0.5 animations:^{
                 touchView.center = _oldCenter;
@@ -386,7 +396,7 @@
         CGFloat x = touchView.center.x;
         CGFloat y = touchView.center.y;
         //没有超出范围
-        if (!(x < EdgeX || x > ScreenWidth - EdgeX || y < TopEdge || y > TopEdge + self.topHeight || (y < (TopEdge + ButtonHeight) && x < (EdgeX + 2 * ButtonWidth)))) {
+        if (![self outRange:touchView.center]) {
             //记录移动过程中label所处的index
             int index = ((int)((y - TopEdge)/ButtonHeight)) * ButtonCountOneRow + (int)(x - EdgeX)/ButtonWidth;
             
@@ -415,7 +425,7 @@
         [touchView inOrOutTouching:NO];
         CGFloat x = touchView.center.x;
         CGFloat y = touchView.center.y;
-        if (x < EdgeX || x > ScreenWidth - EdgeX || y < TopEdge || y > TopEdge + self.topHeight || (y < (TopEdge + ButtonHeight) && x < (EdgeX + 2 * ButtonWidth))) {
+        if ([self outRange:touchView.center]) {
             NSLog(@"长按手势结束: 超出范围");
             [UIView animateWithDuration:0.5 animations:^{
                 touchView.center = _oldCenter;
